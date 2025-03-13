@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Mover),
@@ -8,6 +9,8 @@ public class Player : MonoBehaviour
 
     private Mover _mover;
     private PlayerInputReader _input;
+
+    public event Action GameOver;
 
     private void Awake()
     {
@@ -22,5 +25,10 @@ public class Player : MonoBehaviour
 
         if(_input.GetIsFire())
             _weapon.Shoot(transform.right);
+    }
+
+    public void Die()
+    {
+        GameOver?.Invoke();
     }
 }

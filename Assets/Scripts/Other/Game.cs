@@ -5,7 +5,7 @@ public class Game : MonoBehaviour
 {
     private const int MainScene = 0;
 
-    [SerializeField] private PlayerCollisionHandler _playerCollisionHandler;
+    [SerializeField] private Player _player;
     [SerializeField] private StartScreen _startScreen;
     [SerializeField] private EndGameScreen _endGameScreen;
 
@@ -13,7 +13,7 @@ public class Game : MonoBehaviour
     {
         _startScreen.PlayButtonClicked += OnPlayButtonClick;
         _endGameScreen.RestartButtonClicked += OnRestartButtonClick;
-        _playerCollisionHandler.GameOver += GameReset;
+        _player.GameOver += GameReset;
     }
 
     private void Start()
@@ -26,7 +26,7 @@ public class Game : MonoBehaviour
     {
         _startScreen.PlayButtonClicked -= OnPlayButtonClick;
         _endGameScreen.RestartButtonClicked -= OnRestartButtonClick;
-        _playerCollisionHandler.GameOver -= GameReset;
+        _player.GameOver -= GameReset;
     }  
 
     private void GameReset()

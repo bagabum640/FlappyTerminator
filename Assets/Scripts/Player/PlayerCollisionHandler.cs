@@ -1,15 +1,14 @@
-using System;
 using UnityEngine;
 
 public class PlayerCollisionHandler : MonoBehaviour
 {
-    public event Action GameOver;
+    [SerializeField] private Player _player;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out Enemy enemy) || collision.TryGetComponent(out Bound _) || collision.TryGetComponent(out EnemyBullet _))
+        if (collision.TryGetComponent(out Enemy enemy) || collision.TryGetComponent(out Bound _))
         {
-            GameOver?.Invoke();
+            _player.Die();
         }
     }
 }

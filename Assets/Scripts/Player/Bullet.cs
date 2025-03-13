@@ -20,15 +20,6 @@ public class Bullet : MonoBehaviour
         _wait = new(_lifetime);
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent(out Enemy enemy))
-        {
-            enemy.Die();
-            Destroyed?.Invoke(this);
-        }
-    }
-
     private IEnumerator DestroyAfterLifetime()
     {
         yield return _wait;
@@ -50,5 +41,10 @@ public class Bullet : MonoBehaviour
     {
         _rigidbody.velocity = Vector3.zero;
         transform.rotation = Quaternion.identity;
+    }
+
+    protected void DestroyBullet()
+    {
+        Destroyed?.Invoke(this);
     }
 }
