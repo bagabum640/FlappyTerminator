@@ -1055,7 +1055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b822fbc01fc1d4ebb62dff9cbc82ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerCollisionHandler: {fileID: 858727394}
+  _player: {fileID: 858727395}
   _startScreen: {fileID: 1915473764}
   _endGameScreen: {fileID: 415941419}
 --- !u!1 &571893117
@@ -1313,6 +1313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e77671d5af325c44a9c592ca3eaff7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 858727395}
 --- !u!114 &858727395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2618,7 +2619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22cd19d16c5e92c4d88888197b5a36a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bullet: {fileID: 3158232965102630234, guid: e228fc983728baf409ca7bd97a6dfcf7, type: 3}
+  _bullet: {fileID: -5110479178805763577, guid: e228fc983728baf409ca7bd97a6dfcf7, type: 3}
   _firePoint: {fileID: 809353601}
   _poolCapacity: 10
   _poolMaxSize: 10
@@ -2660,7 +2661,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2963859570987637403, guid: 1504c32c1f71898458a45bd7a0b30530, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.93
       objectReference: {fileID: 0}
     - target: {fileID: 2963859570987637403, guid: 1504c32c1f71898458a45bd7a0b30530, type: 3}
       propertyPath: m_LocalPosition.y
