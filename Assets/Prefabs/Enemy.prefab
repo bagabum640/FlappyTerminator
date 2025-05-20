@@ -186,10 +186,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22cd19d16c5e92c4d88888197b5a36a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bullet: {fileID: 5677329096663327896, guid: fde412f7d4af214418fbd1ce96cb2cb0, type: 3}
+  PoolCapacity: 10
+  MaxPoolSize: 10
+  _prefab: {fileID: 5677329096663327896, guid: fde412f7d4af214418fbd1ce96cb2cb0, type: 3}
   _firePoint: {fileID: 502092427960906878}
-  _poolCapacity: 10
-  _poolMaxSize: 10
 --- !u!1 &8720327577160765459
 GameObject:
   m_ObjectHideFlags: 0

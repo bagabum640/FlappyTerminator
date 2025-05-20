@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IObject<Bullet>
 {
     [SerializeField] private float _speed = 15f;
     [SerializeField] private float _lifetime = 0.7f;
@@ -15,9 +15,14 @@ public class Bullet : MonoBehaviour
 
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();       
+        _rigidbody = GetComponent<Rigidbody2D>();
 
         _wait = new(_lifetime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
     }
 
     private IEnumerator DestroyAfterLifetime()
@@ -34,7 +39,7 @@ public class Bullet : MonoBehaviour
 
     public void SetDirectionToFly(Vector2 direction)
     {
-        _rigidbody.AddForce(direction * _speed,ForceMode2D.Impulse);
+        _rigidbody.AddForce(direction * _speed, ForceMode2D.Impulse);
     }
 
     public void ResetToDefault()

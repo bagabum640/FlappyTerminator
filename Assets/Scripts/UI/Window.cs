@@ -6,9 +6,6 @@ public abstract class Window : MonoBehaviour
     [SerializeField] private CanvasGroup _windowGroup;
     [SerializeField] private Button _actionButton;
 
-    protected CanvasGroup WindowGroup => _windowGroup;
-    protected Button ActionButton => _actionButton;
-
     private void OnEnable()
     {
         _actionButton.onClick.AddListener(OnButtonClick);
@@ -21,12 +18,12 @@ public abstract class Window : MonoBehaviour
 
     protected abstract void OnButtonClick();
 
-    public virtual void Open()
+    public void Open()
     {      
         gameObject.SetActive(true);
     }
 
-    public virtual void Close()
+    public void Close()
     {
         gameObject.SetActive(false);
     }

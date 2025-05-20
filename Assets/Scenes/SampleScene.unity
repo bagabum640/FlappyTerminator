@@ -838,8 +838,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 415941418}
-  - component: {fileID: 415941420}
   - component: {fileID: 415941422}
+  - component: {fileID: 415941420}
   - component: {fileID: 415941421}
   - component: {fileID: 415941419}
   m_Layer: 5
@@ -1042,7 +1042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 858727395}
-  _xOffset: 1
+  _xOffset: 1.5
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1056,7 +1056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 858727395}
-  _startScreen: {fileID: 1915473764}
+  _startScreen: {fileID: 1915473766}
   _endGameScreen: {fileID: 415941419}
 --- !u!1 &571893117
 GameObject:
@@ -2196,16 +2196,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1666040561}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6fef43b89a8c4540955dae5e4ca85dd, type: 3}
+  m_Script: {fileID: 11500000, guid: d3356a7e4b3cd34458d067f39445e7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PoolCapacity: 10
+  MaxPoolSize: 10
   _prefab: {fileID: 8662023550607969764, guid: de9e3492f71e51c43af55ff317b8109f, type: 3}
   _scoreCounter: {fileID: 1769297550}
-  _poolCapacity: 10
-  _poolMaxSize: 10
   _delay: 1
-  _lowerBound: -5.5
-  _upperBound: 6.7
+  _lowerBound: -6.4
+  _upperBound: 7.4
 --- !u!1 &1769297549
 GameObject:
   m_ObjectHideFlags: 0
@@ -2464,7 +2464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1915473763}
   - component: {fileID: 1915473765}
-  - component: {fileID: 1915473764}
+  - component: {fileID: 1915473766}
   m_Layer: 5
   m_Name: StartScreen
   m_TagString: Untagged
@@ -2492,7 +2492,19 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0000009536743, y: 41}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0}
---- !u!114 &1915473764
+--- !u!225 &1915473765
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915473762}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &1915473766
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2506,18 +2518,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _windowGroup: {fileID: 1915473765}
   _actionButton: {fileID: 184169297}
---- !u!225 &1915473765
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915473762}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &1922388692
 GameObject:
   m_ObjectHideFlags: 0
@@ -2619,10 +2619,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22cd19d16c5e92c4d88888197b5a36a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bullet: {fileID: -5110479178805763577, guid: e228fc983728baf409ca7bd97a6dfcf7, type: 3}
+  PoolCapacity: 10
+  MaxPoolSize: 10
+  _prefab: {fileID: -5110479178805763577, guid: e228fc983728baf409ca7bd97a6dfcf7, type: 3}
   _firePoint: {fileID: 809353601}
-  _poolCapacity: 10
-  _poolMaxSize: 10
 --- !u!1001 &965493781166473669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2661,7 +2661,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2963859570987637403, guid: 1504c32c1f71898458a45bd7a0b30530, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.93
+      value: -3.69
       objectReference: {fileID: 0}
     - target: {fileID: 2963859570987637403, guid: 1504c32c1f71898458a45bd7a0b30530, type: 3}
       propertyPath: m_LocalPosition.y

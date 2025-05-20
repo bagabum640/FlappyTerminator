@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Weapon))]
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IObject<Enemy>
 {
     [SerializeField] private float _shootDelay = 1f;
 

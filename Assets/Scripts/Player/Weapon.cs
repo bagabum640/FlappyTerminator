@@ -1,25 +1,9 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Pool;
 
-public class Weapon : MonoBehaviour
+public class Weapon : Spawner<Bullet>
 {
-    [SerializeField] private Bullet _bullet;
     [SerializeField] private Transform _firePoint;
-    [SerializeField] private int _poolCapacity;
-    [SerializeField] private int _poolMaxSize;
-
-    private ObjectPool<Bullet> _pool;
-
-    private void Awake()
-    {
-        _pool = new ObjectPool<Bullet>(
-              createFunc: () => Instantiate(_bullet),
-              actionOnGet: (bullet) => SetUp(bullet),
-              actionOnRelease: (bullet) => ResetBullet(bullet),
-              defaultCapacity: _poolCapacity,
-              maxSize: _poolMaxSize);
-    }
 
     private IEnumerator ShootCoroutine(Vector2 direction, float delay)
     {
@@ -40,26 +24,21 @@ public class Weapon : MonoBehaviour
 
     public void Shoot(Vector2 direction)
     {
-        Bullet bullet = _pool.Get();
+        Bullet bullet = Pool.Get();
 
         bullet.SetDirectionToFly(direction);
     }
 
-    private void SetUp(Bullet bullet)
+    protected override void SetUp(Bullet bullet)
     {
-        bullet.Destroyed += Release;
+        base.SetUp(bullet);
         bullet.transform.SetPositionAndRotation(_firePoint.position, _firePoint.rotation);
-        bullet.gameObject.SetActive(true);
         bullet.StartDestruction();
     }
 
-    private void ResetBullet(Bullet bullet)
+    protected override void ResetObject(Bullet bullet)
     {
-        bullet.Destroyed -= Release;
-        bullet.gameObject.SetActive(false);
+        base.ResetObject(bullet);
         bullet.ResetToDefault();
     }
-
-    private void Release(Bullet bullet) =>
-        _pool.Release(bullet);
 }

@@ -12,23 +12,30 @@ public class Player : MonoBehaviour
 
     public event Action GameOver;
 
+    private void OnEnable()
+    {
+        _input.OnForce += HandleForce;
+        _input.OnFire += HandleFire;
+    }
+
     private void Awake()
     {
         _mover = GetComponent<Mover>();
         _input = GetComponent<PlayerInputReader>();
     }
 
-    private void FixedUpdate()
-    {
-        if (_input.GetIsForce())
-            _mover.Fly();
-
-        if(_input.GetIsFire())
-            _weapon.Shoot(transform.right);
-    }
-
     public void Die()
     {
         GameOver?.Invoke();
+    }
+
+    private void HandleForce()
+    {
+        _mover.Fly();
+    }
+
+    private void HandleFire()
+    {
+        _weapon.Shoot(transform.right);
     }
 }
